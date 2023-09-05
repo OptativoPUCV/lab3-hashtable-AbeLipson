@@ -73,7 +73,14 @@ HashMap *createMap(long capacity) {
   return mapa;
 }
 
-void eraseMap(HashMap *map, char *key) {}
+void eraseMap(HashMap *map, char *key) {
+  Pair *pair = searchMap(map, key);
+  if (pair != NULL) {
+    pair->key = NULL;
+    pair = NULL;
+    map->size--;
+  }
+}
 
 Pair *searchMap(HashMap *map, char *key) {
   // Pair *foundPair = malloc(sizeof(Pair));
