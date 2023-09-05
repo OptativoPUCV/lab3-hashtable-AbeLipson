@@ -29,3 +29,14 @@ hashmap.c:52:9: error: ‘*mapa.buckets’ may be used uninitialized [-Werror=ma
 cc1: all warnings being treated as errors
 Compilation failed
 227cbf7
+Tue 05 Sep 2023 06:03:04 PM UTC: 
+ hashmap.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:53:9: error: ‘*mapa.buckets’ may be used uninitialized [-Werror=maybe-uninitialized]
+   53 |     mapa->buckets[i] = NULL;
+      |     ~~~~^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+1f76d62
