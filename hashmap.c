@@ -76,7 +76,7 @@ HashMap *createMap(long capacity) {
 void eraseMap(HashMap *map, char *key) {}
 
 Pair *searchMap(HashMap *map, char *key) {
-  Pair *foundPair = malloc(sizeof(Pair));
+  // Pair *foundPair = malloc(sizeof(Pair));
   long position = hash(key, map->capacity);
   while (strcmp(key, map->buckets[position]->key) != 0 &&
          map->buckets[position]->key != NULL) {

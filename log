@@ -108,3 +108,8 @@ hashmap.c:79:9: error: unused variable ‘foundPair’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 c19b74e
+Tue 05 Sep 2023 07:07:48 PM UTC: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  0|0
+5b42b79
