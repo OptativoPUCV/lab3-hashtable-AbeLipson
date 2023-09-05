@@ -86,10 +86,10 @@ Pair *searchMap(HashMap *map, char *key) {
   if (map->buckets[position]->key == NULL) {
     foundPair = NULL;
   } else {
-    foundPair->key = key;
+    foundPair->key = map->buckets[position]->key;
     foundPair->value = map->buckets[position]->value;
   }
-  return foundPair;
+  return map->buckets[position];
 }
 
 Pair *firstMap(HashMap *map) { return NULL; }
