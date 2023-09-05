@@ -18,3 +18,14 @@ Tue 05 Sep 2023 05:54:15 PM UTC:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 6890104
+Tue 05 Sep 2023 06:01:14 PM UTC: 
+ hashmap.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+hashmap.c: In function ‘createMap’:
+hashmap.c:52:9: error: ‘*mapa.buckets’ may be used uninitialized [-Werror=maybe-uninitialized]
+   52 |     mapa->buckets[i] = NULL;
+      |     ~~~~^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+227cbf7
