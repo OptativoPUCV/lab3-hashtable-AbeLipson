@@ -97,3 +97,14 @@ Tue 05 Sep 2023 07:05:22 PM UTC:
  1 file changed, 1 insertion(+)
  tests:  0|0
 ed331e5
+Tue 05 Sep 2023 07:07:36 PM UTC: 
+ hashmap.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+In file included from test.c:4:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:79:9: error: unused variable ‘foundPair’ [-Werror=unused-variable]
+   79 |   Pair *foundPair = malloc(sizeof(Pair));
+      |         ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+c19b74e

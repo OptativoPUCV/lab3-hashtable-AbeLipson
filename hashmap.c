@@ -84,12 +84,13 @@ Pair *searchMap(HashMap *map, char *key) {
   }
 
   if (map->buckets[position]->key == NULL) {
-    foundPair = NULL;
+    map->buckets[position] = NULL;
   } else {
-    foundPair->key = map->buckets[position]->key;
-    foundPair->value = map->buckets[position]->value;
+    map->current = position;
+    // foundPair->key = map->buckets[position]->key;
+    // foundPair->value = map->buckets[position]->value;
   }
-  map->current = position;
+
   return map->buckets[position];
 }
 
