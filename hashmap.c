@@ -81,7 +81,8 @@ Pair *searchMap(HashMap *map, char *key) {
   long position = hash(key, map->capacity);
 
   if (map->buckets[position] != NULL && map->buckets[position]->key != NULL) {
-    while (strcmp(key, map->buckets[position]->key) != 0) {
+    while (map->buckets[position] != NULL &&
+           strcmp(key, map->buckets[position]->key) != 0) {
       if (position == origPosition - 1) {
         break;
       } else if (map->buckets[position] != NULL) {
