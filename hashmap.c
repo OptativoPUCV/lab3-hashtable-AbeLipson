@@ -80,22 +80,26 @@ Pair *searchMap(HashMap *map, char *key) {
   long origPosition = hash(key, map->capacity);
   long position = hash(key, map->capacity);
   while (strcmp(key, map->buckets[position]->key) != 0) {
-    if (map->buckets[position] != NULL) {
-      position++;
-    } else if (position == origPosition - 1) {
+    if (position == origPosition - 1) {
       break;
+    } else if (map->buckets[position] != NULL) {
+      if (position == map->capacity - 1) {
+        position = 0;
+      } else {
+        position++;
+      }
     } else {
       break;
     }
   }
 
-    if (map->buckets[position]->key != NULL) {
-      map->current = position;
-    }
-
-    return map->buckets[position];
+  if (map->buckets[position] != NULL) {
+    map->current = position;
   }
 
-  Pair *firstMap(HashMap * map) { return NULL; }
+  return map->buckets[position];
+}
 
-  Pair *nextMap(HashMap * map) { return NULL; }
+Pair *firstMap(HashMap *map) { return NULL; }
+
+Pair *nextMap(HashMap *map) { return NULL; }
