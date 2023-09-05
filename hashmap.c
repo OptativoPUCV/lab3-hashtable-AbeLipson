@@ -89,6 +89,7 @@ Pair *searchMap(HashMap *map, char *key) {
     foundPair->key = map->buckets[position]->key;
     foundPair->value = map->buckets[position]->value;
   }
+  map->current = position;
   return map->buckets[position];
 }
 
