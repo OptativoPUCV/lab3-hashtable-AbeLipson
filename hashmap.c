@@ -40,7 +40,7 @@ int is_equal(void *key1, void *key2) {
 }
 
 void insertMap(HashMap *map, char *key, void *value) {
-  long position = hash(key, map->capacity);
+  unsigned long position = hash(key, map->capacity);
   while (map->buckets[position] != NULL) {
     position = position + 1;
   }
