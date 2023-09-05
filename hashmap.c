@@ -94,9 +94,6 @@ Pair *searchMap(HashMap *map, char *key) {
         break;
       }
     }
-  }
-
-  if (map->buckets[position] != NULL) {
     map->current = position;
   }
 
