@@ -40,11 +40,15 @@ int is_equal(void *key1, void *key2) {
 }
 
 void insertMap(HashMap *map, char *key, void *value) {
-  unsigned long position = hash(key, map->capacity);
+  Pair *newPair = malloc(sizeof(Pair));
+  newPair->key = key;
+  newPair->value = value;
+
+  long position = hash(key, map->capacity);
   while (map->buckets[position] != NULL) {
     position = position + 1;
   }
-  map->buckets[position] = value;
+  map->buckets[position] = newPair;
 }
 
 void enlarge(HashMap *map) {
