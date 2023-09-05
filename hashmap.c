@@ -79,12 +79,15 @@ Pair *searchMap(HashMap *map, char *key) {
   // Pair *foundPair = malloc(sizeof(Pair));
   long position = hash(key, map->capacity);
   while (strcmp(key, map->buckets[position]->key) != 0) {
-    if( map->buckets[position] != NULL){
+    if (map->buckets[position] != NULL) {
       position++;
-    }
-    else{
+    } else {
       break;
     }
+  }
+
+  if (map->buckets[position]->key != NULL) {
+    map->current = position;
   }
 
   return map->buckets[position];
