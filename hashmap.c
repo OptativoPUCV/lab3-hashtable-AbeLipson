@@ -108,6 +108,14 @@ Pair *searchMap(HashMap *map, char *key) {
   return map->buckets[position];
 }
 
-Pair *firstMap(HashMap *map) { return NULL; }
+Pair *firstMap(HashMap *map) {
+  Pair *firstPair = malloc(sizeof(Pair));
+  int i = 0;
+  while (map->buckets[i] == NULL) {
+    i++;
+  }
+  firstPair = map->buckets[i];
+  return firstPair;
+}
 
 Pair *nextMap(HashMap *map) { return NULL; }
