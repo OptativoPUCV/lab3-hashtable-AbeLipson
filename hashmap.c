@@ -58,20 +58,23 @@ void insertMap(HashMap *map, char *key, void *value) {
 
 void enlarge(HashMap *map) {
   enlarge_called = 1; // no borrar (testing purposes)
-  Pair **auxBuckets =(struct Pair **)malloc(sizeof(struct Pair *) * map->capacity);
-  
-  for (long i = 0; i < map->capacity; i++) {
-    auxBuckets[i] = map->buckets[i];
-  }
-  long newCap = (map->capacity)*2;
-  Pair **newBuckets =(struct Pair **)malloc(sizeof(struct Pair *) * newCap);
-  map->capacity = newCap;
-  map->buckets = newBuckets;
-  map->size = 0;
+  long newCap = map->capacity * 2;
+  HashMap *auxMap = createMap(newCap);
 
-  for(long i = 0; i < map->capacity; i++){
-    insertMap(map,auxBuckets[i]->key,auxBuckets[i]->value);
+  for (long i = 0; i < newCap; i++) {
+    Pair *pair = map->buckets[i];
+    if (pair != NULL) {
+      // long newLoc = hash(pair->key,newCap);
+      insertMap(auxMap, pair->key, pair->value);
+    }
   }
+
+  free(map->buckets);
+  map->capacity = newCap;
+  map->buckets = auxMap->buckets;
+  map->size = auxMap->size;
+
+  free(auxMap);
 }
 
 HashMap *createMap(long capacity) {
