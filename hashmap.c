@@ -63,7 +63,7 @@ void enlarge(HashMap *map) {
 
   for (long i = 0; i < newCap; i++) {
     Pair *pair = map->buckets[i];
-    if (pair != NULL) {
+    if (pair != NULL && pair->key != NULL && pair->value != NULL) {
       // long newLoc = hash(pair->key,newCap);
       insertMap(auxMap, pair->key, pair->value);
     }
