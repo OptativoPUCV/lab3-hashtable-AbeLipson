@@ -61,10 +61,9 @@ void enlarge(HashMap *map) {
   long newCap = map->capacity * 2;
   HashMap *auxMap = createMap(newCap);
 
-  for (long i = 0; i < newCap; i++) {
+  for (long i = 0; i < map->capacity; i++) {
     Pair *pair = map->buckets[i];
-    if (pair != NULL && pair->key != NULL && pair->value != NULL) {
-      // long newLoc = hash(pair->key,newCap);
+    if (pair != NULL && pair->key != NULL) {
       insertMap(auxMap, pair->key, pair->value);
     }
   }
