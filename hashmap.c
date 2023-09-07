@@ -116,8 +116,16 @@ Pair *firstMap(HashMap *map) {
       break;
     }
   }
-
   return firstPair;
 }
 
-Pair *nextMap(HashMap *map) { return NULL; }
+Pair *nextMap(HashMap *map) {
+  long nextIndex = map->current + 1;
+  while (map->buckets[nextIndex] == NULL) {
+    nextIndex++;
+  }
+  Pair *nextPair = map->buckets[nextIndex];
+  map->current = nextIndex;
+
+  return nextPair;
+}
