@@ -122,11 +122,13 @@ Pair *firstMap(HashMap *map) {
 
 Pair *nextMap(HashMap *map) {
   long nextIndex = map->current + 1;
-  while (map->buckets[nextIndex] == NULL) {
+  while (nextIndex < map->capacity) {
+    if (map->buckets[nextIndex] != NULL) {
+      map->current = nextIndex;
+      return map->buckets[nextIndex];
+    }
     nextIndex++;
   }
-  Pair *nextPair = map->buckets[nextIndex];
-  map->current = nextIndex;
 
-  return nextPair;
+  return NULL;
 }
