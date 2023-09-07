@@ -111,8 +111,9 @@ Pair *searchMap(HashMap *map, char *key) {
 Pair *firstMap(HashMap *map) {
   Pair *firstPair = NULL;
   for (int i = 0; i < map->capacity; i++) {
-    if (map->buckets[i]->key != NULL) {
-      firstPair = map->buckets[i];
+    Pair *hypPair = map->buckets[i];
+    if (hypPair->key != NULL) {
+      firstPair = hypPair;
       break;
     }
   }
